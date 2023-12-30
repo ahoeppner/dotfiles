@@ -119,6 +119,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_exports ]; then
+    . ~/.bash_exports
+fi
+
 # More aliases and exports.
 # Checks to see if there are any additional local alias or export files
 # and will include those as well. I do this so I can leave the standard
@@ -148,3 +152,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
