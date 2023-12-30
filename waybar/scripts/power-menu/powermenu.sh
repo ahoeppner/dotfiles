@@ -6,14 +6,14 @@ theme='style'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=`hostname`
+host=$HOSTNAME
 
 # Options
 shutdown=''
 reboot=''
 lock=''
-suspend=' '
-logout=' '
+logout=' '
+suspend=' '
 yes=' '
 no=''
 
@@ -61,15 +61,15 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-            if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+            if [[ "$XDG_SESSION_DESKTOP" == 'openbox' ]]; then
                 openbox --exit
-            elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
+            elif [[ "$XDG_SESSION_DESKTOP" == 'bspwm' ]]; then
                 bspc quit
-            elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+            elif [[ "$XDG_SESSION_DESKTOP" == 'i3' ]]; then
                 i3-msg exit
-            elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
+            elif [[ "$XDG_SESSION_DESKTOP" == 'plasma' ]]; then
                 qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-            elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
+            elif [[ "$XDG_SESSION_DESKTOP" == 'hyprland' ]]; then
                 hyprctl dispatch exit 1
             fi
         fi

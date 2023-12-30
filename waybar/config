@@ -2,7 +2,7 @@
     "height": 40, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
     "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
-    "modules-right": ["tray", "network", "pulseaudio", "custom/lock", "clock", "custom/power-menu"],
+    "modules-right": ["tray", "bluetooth", "network", "pulseaudio", "custom/lock", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -64,14 +64,6 @@
        "on-click": "swaylock",
        "format" : "",
     },
-   "custom/spotify": {
-        "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
-        "format": " {}",
-        "return-type": "json",
-        "on-click": "playerctl play-pause",
-        "on-double-click-right": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-    },
     "custom/power-menu": {
         "format": " ⏻ ",
         "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh &",
@@ -80,4 +72,14 @@
         "format": "",
         "on-click": "rofi -show drun &",
     },
+    "bluetooth": {
+	"format": " {status}",
+	"format-connected": " {device_alias}",
+	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	"on-click": "~/.config/waybar/scripts/bluetooth/rofi-bluetooth",
+    }	
 }
