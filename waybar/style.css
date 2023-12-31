@@ -1,7 +1,7 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Material Design Icons, JetBrainsMono Nerd Font, Iosevka Nerd Font;
-  font-size: 19px;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -19,6 +19,8 @@ window#waybar.hidden {
   color: #64727d;
 }
 
+#bluetooth,
+#custom-gpu,
 #clock,
 #cpu,
 #memory,
@@ -64,6 +66,9 @@ window#waybar.hidden {
   color: #a1c999;
 }
 
+#custom-gpu {
+  color: #d37032;
+}
 #workspaces button {
   color: #7a95c9;
   box-shadow: inset 0 -3px transparent;
