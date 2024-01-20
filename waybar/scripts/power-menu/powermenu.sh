@@ -61,18 +61,18 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-            if [[ "$XDG_SESSION_DESKTOP" == 'openbox' ]]; then
-                openbox --exit
-            elif [[ "$XDG_SESSION_DESKTOP" == 'bspwm' ]]; then
-                bspc quit
-            elif [[ "$XDG_SESSION_DESKTOP" == 'i3' ]]; then
-                i3-msg exit
-            elif [[ "$XDG_SESSION_DESKTOP" == 'plasma' ]]; then
-                qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-            elif [[ "$XDG_SESSION_DESKTOP" == 'hyprland' ]]; then
-                hyprctl dispatch exit 1
-            fi
-        fi
+		    if [[ "$XDG_SESSION_DESKTOP" == 'openbox' ]]; then
+			openbox --exit
+		    elif [[ "$XDG_SESSION_DESKTOP" == 'bspwm' ]]; then
+			bspc quit
+		    elif [[ "$XDG_SESSION_DESKTOP" == 'i3' ]]; then
+			i3-msg exit
+		    elif [[ "$XDG_SESSION_DESKTOP" == 'plasma' ]]; then
+			qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+		    elif [[ "$XDG_SESSION_DESKTOP" == 'hyprland' ]]; then
+			hyprctl dispatch exit 1
+		    fi
+		fi
 	else
 		exit 0
 	fi
@@ -88,11 +88,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+		swaylock
         ;;
     $suspend)
 		run_cmd --suspend

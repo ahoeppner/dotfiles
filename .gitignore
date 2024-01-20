@@ -3,3 +3,42 @@ session/
 kde.org/
 dconf/
 pavucontrol.ini
+
+# Sensitive info
+*.key
+*.pem
+*pass*
+*secret*
+*token*
+*credentials*
+*auth*
+
+# Large binary files
+*.bin
+*.so
+*.dll
+*.pyc
+*.class
+
+# Ignore cache files and folders (case-insensitive)
+[cC][aA][cC][hH][eE]/
+[cC][aA][cC][hH][eE]*
+*/*[cC][aA][cC][hH][eE]/
+*/*[cC][aA][cC][hH][eE]*
+
+
+# Logs
+*.log
+log/
+logs/
+
+# Other stuff
+GIMP/
+Thunar/
+Ultralytics/
+VirtualBox/
+discord/
+protonvpn/
+ristretto/
+sublime-text/
+systemd/

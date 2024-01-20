@@ -19,6 +19,7 @@ window#waybar.hidden {
   color: #64727d;
 }
 
+#privacy,
 #bluetooth,
 #custom-gpu,
 #clock,
@@ -227,6 +228,14 @@ window#waybar.hidden {
 }
 
 #clock {
+  color: #ecd3a0;
+  font-family: Iosevka Nerd Font;
+  font-weight: bold;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#clock.date {
   color: #8a909e;
   font-family: Iosevka Nerd Font;
   font-weight: bold;

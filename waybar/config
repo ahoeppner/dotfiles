@@ -2,7 +2,8 @@
     "height": 40, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
     "modules-left": ["custom/launcher", "cpu", "memory", "custom/gpu", "hyprland/workspaces", "custom/weather"],
-    "modules-right": ["tray", "bluetooth", "network", "pulseaudio", "custom/lock", "clock", "custom/power-menu"],
+    "modules-right": ["tray", "bluetooth", "custom/vpn", "network", "pulseaudio", "custom/lock", "clock#date", "custom/power-menu"],
+    "modules-center": ["clock"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -20,6 +21,11 @@
     "clock": {
         "format": "{:%H:%M}",
         "format-alt": "{:%b %d %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "clock#date": {
+        "format": "{:%b %d %Y}",
+        "format-alt": "{:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
@@ -87,5 +93,12 @@
 	"exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader",
 	"return-type": "",
 	"interval": 2,
+    },
+    "custom/vpn": {
+        "format": "VPN ",
+        "exec": "echo '{\"class\": \"connected\"}'",
+        "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+        "return-type": "json",
+        "interval": 5
     },
 }
