@@ -76,7 +76,7 @@
     }, 
     "custom/launcher": {
         "format": "",
-        "on-click": "rofi -show drun &",
+        "on-click": "selected=$(ls ~/bin/|rofi -dmenu -p 'Run: ') && kitty bash ~/bin/$selected",
     },
     "bluetooth": {
 	"format": " {status}",
