@@ -1,9 +1,8 @@
 {
-    "height": 40, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
-    "modules-left": ["custom/launcher", "cpu", "memory", "custom/gpu", "hyprland/workspaces", "custom/weather"],
-    "modules-right": ["tray", "bluetooth", "custom/vpn", "network", "pulseaudio", "custom/lock", "clock#date", "custom/power-menu"],
-    "modules-center": ["clock"],
+    "modules-left": ["custom/launcher", "cpu", "memory", "custom/gpu", "hyprland/workspaces"],
+    "modules-right": ["tray", "bluetooth", "custom/vpn", "network", "pulseaudio", "custom/updates", "idle_inhibitor", "custom/lock", "custom/power-menu"],
+    "modules-center": ["clock#date", "clock", "custom/weather"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -33,7 +32,6 @@
       "interval": 10,
       "format": " {}%",
       "max-length": 10,
-      "on-click": "",
     },
     "memory": {
         "interval": 30,
@@ -101,4 +99,23 @@
         "return-type": "json",
         "interval": 5
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "idle inhibitor {status}",
+        "tooltip-format-deactivated": "idle inhibitor {status}",
+    },
+       "custom/updates": {
+       "format": "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+           "has-updates": "󱍷",
+           "updated": "󰂪"
+       },
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates"
+   },
 }

@@ -6,4 +6,7 @@
       <property name="position" type="string" value="left"/>
     </property>
   </property>
+  <property name="slideshow" type="empty">
+    <property name="timeout" type="uint" value="4"/>
+  </property>
 </channel>
